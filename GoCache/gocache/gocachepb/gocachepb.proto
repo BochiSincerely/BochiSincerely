@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package geecachepb;
+
+message Request {
+  string group = 1;
+  string key = 2;
+}//对应之前定义的接口/_geecache/<group>/<name>所需要的参数
+
+message Response {
+  bytes value = 1;
+} //byte数组
+
+service GroupCache {
+  rpc Get(Request) returns (Response);
+}
